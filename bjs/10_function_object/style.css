@@ -1,0 +1,118 @@
+/* body{
+background:url(https://images.unsplash.com/photo-1617611392752-fc419caffff7?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)no-repeat;
+background-size: 100%;
+} */
+
+.container{
+    background:url(https://images.unsplash.com/photo-1617611392752-fc419caffff7?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)no-repeat;
+    background-size: 100%;
+    margin-top: 80px;
+    width: 800px;
+    height: 700px;
+}
+
+.card {
+    background-color: rgba(250, 235, 215, 0);
+    width: 350px;
+    margin: 230px 0px 0px 10px;
+    transform: rotate(-15.8deg);
+    border: 0;
+    /* border: 3px solid rgb(149, 0, 255);
+    border-radius: 25px; */
+}
+
+@media (min-width: 768px) and (max-width: 991px){ /* стиль применится, если ширина окна браузера больше 768px И меньше 991px*/
+    .card {
+            margin: 200px 0px 0px -5px;
+            width: 330px;
+        }
+}
+
+@media (min-width: 576px) and (max-width: 768px){ 
+    .card {
+            margin: 165px 0px 0px 140px;
+            width: 250px;
+        }
+
+    .card-header, .card-body  {
+        padding: 0;
+    }
+    
+    .col p.card-title{
+        font-size: 15px;
+    }
+
+    p.other{
+        font-size: 12px;
+        margin-bottom: 0;
+    }
+
+    button{
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 576px){
+    .card {
+        margin: 240px 0px 0px 200px;
+        width: 380px;
+    }
+}
+
+
+
+.card-body{
+padding: 0;
+}
+
+.row{
+
+}
+
+.col{
+
+}
+
+p.card-title{
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 0;
+}
+
+.card-title{
+   
+    /* background-color: rgba(0, 0, 0, 0.13); */
+    padding-left: 10px;
+}
+
+#surnameOutput{
+
+}
+
+h4{
+    font-size: 1.rem;
+    /* background-color: rgba(0, 0, 0, 0.13); */
+    padding-left: 10px;
+}
+
+#firstNameOutput{
+
+}
+
+p{
+    /* background-color: rgba(0, 0, 0, 0.13); */
+    padding-left: 10px;
+}
+
+#genderOutput #birthYearOutput{
+
+}
+
+button{
+margin: -10px 0 0 10px;
+padding-right: 20px;
+/* border: 1px solid rgb(250, 235, 215); */
+border-radius: calc(0.25rem - 1px) calc(0.25rem - 1px) 0 0;
+background-color:rgba(0,0,0,.03);
+border: 1px solid rgba(0,0,0,.125);
+}
