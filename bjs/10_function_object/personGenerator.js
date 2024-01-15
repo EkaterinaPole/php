@@ -1,4 +1,5 @@
 const personGenerator = {
+    //фамилии:
     surnameJson: `{  
         "count": 15,
         "list": {
@@ -51,21 +52,22 @@ const personGenerator = {
         }
     }`,
 
-    fatherNameJson: `{
-        "count": 10,
-        "list": {     
-            "id_1": "Александров",
-            "id_2": "Махайлов",
-            "id_3": "Игорев",
-            "id_4": "Олегов",
-            "id_5": "Дмитриев",
-            "id_6": "Денисов",
-            "id_7": "Степанов",
-            "id_8": "Константинов",
-            "id_9": "Валентинов",
-            "id_10": "Андреев"
-        }
-    }`,
+    // отчества без окончаний:
+    // fatherNameJson: `{
+    //     "count": 10,
+    //     "list": {     
+    //         "id_1": "Александров",
+    //         "id_2": "Махайлов",
+    //         "id_3": "Игорев",
+    //         "id_4": "Олегов",
+    //         "id_5": "Дмитриев",
+    //         "id_6": "Денисов",
+    //         "id_7": "Степанов",
+    //         "id_8": "Константинов",
+    //         "id_9": "Валентинов",
+    //         "id_10": "Андреев"
+    //     }
+    // }`, 
 
     mouthNameJson: `{
         "count": 12,
@@ -170,13 +172,41 @@ const personGenerator = {
 
     },
 
-    randomfatherName: function() {
-        if (this.GENDER === this.GENDER_MALE)
-            return this.randomValue(this.fatherNameJson) + "ич";
-        else 
-            return this.randomValue(this.fatherNameJson) + "на";
+    randomfatherName: function() {    
+        if (this.GENDER === this.GENDER_MALE) {
+            let rand = this.randomValue(this.firstNameMaleJson);
+                if (String(rand).substr(-1,1) === "й") { //если окончание "й"
+                    let name = (String(rand).substr(0,String(rand).length-1)); //то убираем "й", создаём новую переменную и записываем туда слово без "й"
+                    return name + "евич";
+                }
+                
+                if (String(rand).substr(-1,1) === "а") { //если окончание "а"
+                    let name = (String(rand).substr(0,String(rand).length-1)); //то убираем "а", создаём новую переменную и записываем туда слово без "а"
+                    return name + "ич";
+                }
 
+                else 
+                    return rand + "ович";
+        }
+        else
+        {
+            let rand = this.randomValue(this.firstNameMaleJson);
+                if (String(rand).substr(-1,1) === "й") { 
+                    let name = (String(rand).substr(0,String(rand).length-1)); 
+                    return name + "евна";
+                }
+                
+                if (String(rand).substr(-1,1) === "а") { 
+                    let name = (String(rand).substr(0,String(rand).length-1)); 
+                    return name + "ична";
+                }
+
+                else 
+                    return rand + "овна";
+        }
+    
     },   
+
 
     randomBirthYear: function() {
         randYear = this.randomIntNumber(1943, 2001);
@@ -248,11 +278,11 @@ document.getElementById('btn-ger').addEventListener('click', function () {
 })
 
 document.getElementById('btn_clr').addEventListener('click', function () {
-    document.getElementById('firstNameOutput').innerText = "Иван";
-    document.getElementById('surnameOutput').innerText = "Генерация фамилии";
-    document.getElementById('genderOutput').innerText = "Генерация пола";
-    document.getElementById('birthYearOutput').innerText = "Генерация года рождения";
-    document.getElementById('fatherNameOutput').innerText = "Иванович";
-    document.getElementById('professionOutput').innerText = "Генерация профессии";
+    document.getElementById('firstNameOutput').innerText = "Имя";
+    document.getElementById('surnameOutput').innerText = "Фамилия";
+    document.getElementById('genderOutput').innerText = "Пол";
+    document.getElementById('birthYearOutput').innerText = "Дата рождения";
+    document.getElementById('fatherNameOutput').innerText = "Отчество";
+    document.getElementById('professionOutput').innerText = "Профессия";
     // console.log("clear");
  })
